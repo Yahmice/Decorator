@@ -9,12 +9,16 @@ def formatdata(format_datetime = "%Y/%m/%d"):
             start = datetime.datetime.now()
 
             result = old_function(*args, **kwargs)
-
+            
             start = start.strftime(format_datetime)
-            print(
+            
+            with open('main.log', 'w') as file:
+                file.writelines(
                 f'Сейчас будет вызвана функция {old_function.__name__}, с аргументами {args} и {kwargs}. '
                 f'Начало работы {start} '
+                f'Возвращаемое значение: {old_function(*args, **kwargs)}'
             )
+                
             return result
         
         return new_function
