@@ -12,7 +12,7 @@ def formatdata(format_datetime = "%Y/%m/%d"):
             
             start = start.strftime(format_datetime)
             
-            with open('main.log', 'w') as file:
+            with open('main.log', 'a') as file:
                 file.writelines(
                 f'Сейчас будет вызвана функция {old_function.__name__}, с аргументами {args} и {kwargs}. '
                 f'Начало работы {start} '
@@ -66,3 +66,4 @@ def test_1():
 
 if __name__ == '__main__':
     test_1()
+
